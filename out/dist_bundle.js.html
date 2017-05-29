@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: dist/bundle.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: dist/bundle.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module &amp;&amp; module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _RM = __webpack_require__(6);
+
+var _RM2 = _interopRequireDefault(_RM);
+
+var _game = __webpack_require__(4);
+
+var _game2 = _interopRequireDefault(_game);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+var GM = {
+	init: function init() {
+		_RM2.default.init();
+		this.on('resources:loaded', _game2.default.init.bind(_game2.default));
+	},
+	trigger: function trigger(event) {
+		var e = new Event(event);
+		document.body.dispatchEvent(e);
+	},
+	on: function on(event, callback) {
+		document.body.addEventListener(event, callback);
+	}
+};
+window.onload = function () {
+	GM.init();
+};
+window.onkeydown = function (e) {
+	if (e.keyCode == 38) {
+		GM.trigger('keyboard:arrawUp');
+	}
+};
+
+exports.default = GM;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var res = {
+	player: {
+		src: "resources/mario/player.png",
+		sprite: true,
+		gridWidth: 2,
+		width: 32,
+		height: 32,
+		frequency: 3
+	},
+	playerUp: {
+		src: "resources/mario/player_upgrade.png",
+		sprite: true,
+		gridWidth: 2,
+		width: 32,
+		height: 64,
+		frequency: 3
+
+	},
+	cloudBig: {
+		src: "resources/cloud/cloud_big.png",
+		width: 256,
+		height: 96
+	},
+	cloudMiddle: {
+		src: "resources/cloud/cloud_middle.png",
+		width: 192,
+		height: 96
+	},
+	cloudSmall: {
+		src: "resources/cloud/cloud_small.png",
+		width: 128,
+		height: 96
+	},
+	tubeHead: {
+		src: "resources/tube/tube_vertical_head.png",
+		width: 128,
+		height: 60
+
+	},
+	tube: {
+		src: "resources/tube/tube_vertical.png",
+		width: 128,
+		height: 8
+	},
+	tubeHeadDown: {
+		src: "resources/tube/tube_vertical_headDown.png",
+		width: 128,
+		height: 60
+
+	},
+	tubeDown: {
+		src: "resources/tube/tube_verticalDown.png",
+		width: 128,
+		height: 8
+	},
+	coin: {
+		src: "resources/coins/coin.png",
+		sprite: true,
+		gridWidth: 2,
+		width: 40,
+		height: 56,
+		frequency: 6
+	},
+	live: {
+		src: "resources/mushroom/live.png",
+		width: 32,
+		height: 32
+	}
+
+};
+
+exports.default = res;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _resources = __webpack_require__(1);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+//import resources from "./resources/flappy/resources";
+/**
+ * this class is parent for any element appears on the field
+ * @class FieldItem
+ *  @param {object} param - contain initial configs.
+ *  @param {number} [param.x=0] - position on axis X.
+ *  @param {number} [param.y=0] - position on axis Y.
+ *  @param {number} [param.speedX=0] - speed on axis X.
+ *  @param {number} [param.speedY=0] - speed on axis Y.
+ *  @param {string} param.imgName - image resources alias.
+ *  @param {number} [param.width=width from resources] - width of element.
+ *  @param {number} [param.height=height from resources] - height of element.
+ *  @param {boolean} [param.collisable=false] - can this element collided with another .
+ *  @param {number} [param.frame=0] - initial sprite frame .
+ *  @param {boolean} [param.hidden=false] - hide the element.
+ *  @param {number} [param.collisionAccuracyX=0] - accuracy on axis X on collision check.
+ *  @param {number} [param.collisionAccuracyY=0] - accuracy on axis Y on collision check.
+ *
+ * */
+var FieldItem = function () {
+	function FieldItem(param) {
+		_classCallCheck(this, FieldItem);
+
+		this.x = param.x || 0;
+		this.y = param.y || 0;
+		this.speedX = param.speedX || 0;
+		this.speedY = param.speedY || 0;
+		this.imgName = param.imgName;
+		this.width = param.width || _resources2.default[param.imgName].width;
+		this.height = param.height || _resources2.default[param.imgName].height;
+		this.collisable = param.collisable || false;
+		this.frame = param.frame || 0;
+		this.hidden = param.hidden || false;
+		this.collisionAccuracyX = param.collisionAccuracyX || 0;
+		this.collisionAccuracyY = param.collisionAccuracyY || 0;
+		//this.shapeRectangle = param.shapeRectangle || [{x: this.x, y: this.y}, {x: this.x + this.width, y: this.y}, {x: this.x + this.width, y: this.y + this.height}, {x: this.x, y: this.y + this.height}]
+	}
+
+	/**
+  * check collision of this element with provided  coordinates
+  * @param {number} x - position on axis X.
+  * @param {number} y - position on axis Y.
+  * @param {number} w - width of element.
+  * @param {number} h - height of element.
+  * @param {object} config - game config object.
+  * @return {boolean} true if collided.
+  */
+
+
+	_createClass(FieldItem, [{
+		key: "checkCollision",
+		value: function checkCollision(x, y, w, h, config) {
+			if (this.hidden) {
+				return false;
+			}
+			if (!this.collisable &amp;&amp; !this.isVisible(config.width)) {
+				return false;
+			}
+			var shape = this.getShapeRectangle();
+			var m = [{ x: x, y: y }, { x: x + w, y: y }, { x: x + w, y: y + h }, { x: x, y: y + h }];
+			for (var i = 0; i &lt; m.length; i++) {
+				if (shape[0].x + this.collisionAccuracyX &lt; m[i].x &amp;&amp; shape[1].x - this.collisionAccuracyX > m[i].x &amp;&amp; shape[0].y + this.collisionAccuracyY &lt; m[i].y &amp;&amp; shape[3].y > m[i].y) {
+					this.collided();
+					return true;
+				}
+			}
+		}
+
+		/**
+   * Fires when two element collided
+   */
+
+	}, {
+		key: "collided",
+		value: function collided() {}
+
+		/**
+   * get shape rectangle, which occupies by  element
+   * @return {array} array with vertex coordinates rectangle. Start in top-left vertex then go  clockwides
+   */
+
+	}, {
+		key: "getShapeRectangle",
+		value: function getShapeRectangle() {
+			return [{ x: this.x, y: this.y }, { x: this.x + this.width, y: this.y }, {
+				x: this.x + this.width,
+				y: this.y + this.height
+			}, { x: this.x, y: this.y + this.height }];
+		}
+
+		/**
+   * draw  element field
+   * @param {object} ctx - context with we use to draw.
+   */
+
+	}, {
+		key: "draw",
+		value: function draw(ctx) {
+			if (this.isVisible(ctx.width) &amp;&amp; !this.hidden) {
+				if (_resources2.default[this.imgName].sprite) {
+					this.drawSprite(ctx);
+				} else {
+					ctx.drawImage(_resources2.default[this.imgName].image, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height);
+				}
+			}
+		}
+
+		/**
+   * draw sprite's current frame
+   * @param {object} ctx - context with we use to draw.
+   */
+
+	}, {
+		key: "drawSprite",
+		value: function drawSprite(ctx) {
+			var m = _resources2.default[this.imgName];
+			var shiftX = (m.width + m.gridWidth) * this.frame + m.gridWidth;
+			ctx.drawImage(m.image, shiftX, m.gridWidth, m.width, m.height, this.x, this.y, m.width, m.height);
+		}
+
+		/**
+   * define element visible or not on the screen
+   * @param {number} screenWidth - width of screen.
+   * @return {boolean} is element visible .
+   */
+
+	}, {
+		key: "isVisible",
+		value: function isVisible(screenWidth) {
+			return this.x + this.width > 0 &amp;&amp; this.x &lt; screenWidth;
+		}
+
+		/**
+   * move element field
+   * @param {object} config - game config object.
+   * @param {number} tickCnt - number of tick passed.
+   */
+
+	}, {
+		key: "move",
+		value: function move(config, tickCnt) {
+			this.x -= this.speedX;
+			this.y -= this.speedY;
+			if (this.imgName &amp;&amp; _resources2.default[this.imgName].sprite) {
+				if (tickCnt % Math.round(config.fps / _resources2.default[this.imgName].frequency) == 0) {
+					this.frame = (this.frame + 1) % _resources2.default[this.imgName].countFrame;
+				}
+			}
+		}
+	}]);
+
+	return FieldItem;
+}();
+
+exports.default = FieldItem;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Layer class
+ * @class Layer
+ * */
+var Layer = function () {
+	function Layer() {
+		_classCallCheck(this, Layer);
+
+		this.items = [];
+	}
+	/**
+  * draw any items elements fields
+  * @constructor
+  * @param {string} ctx - The place, where we draw.
+  */
+
+	_createClass(Layer, [{
+		key: "draw",
+		value: function draw(ctx) {
+			for (var i = 0; i &lt; this.items.length; i++) {
+				this.items[i].draw(ctx);
+			}
+		}
+		/**
+  * move any items elements fields
+  * @constructor
+  * @param {string} config - initial setting.
+  * @param {number} tickCnt- number of tick passed.
+  */
+
+	}, {
+		key: "move",
+		value: function move(config, tickCnt) {
+			for (var i = 0; i &lt; this.items.length; i++) {
+				this.items[i].move(config, tickCnt);
+			}
+		}
+		/**
+   * check collision any items elements fields with another elements
+   * @constructor
+   * @param {number} x - position of axi X.
+   * @param {number} y - position of axi Y.
+   * @param {number} w- width of element.
+   * @param {number} h- height of element.
+   * @param {string} config - initial setting.
+   */
+
+	}, {
+		key: "checkCollision",
+		value: function checkCollision(x, y, w, h, config) {
+			for (var i = 0; i &lt; this.items.length; i++) {
+				this.items[i].checkCollision(x, y, w, h, config);
+			}
+		}
+	}]);
+
+	return Layer;
+}();
+
+exports.default = Layer;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _GM = __webpack_require__(0);
+
+var _GM2 = _interopRequireDefault(_GM);
+
+var _cloudLayer = __webpack_require__(8);
+
+var _cloudLayer2 = _interopRequireDefault(_cloudLayer);
+
+var _tubeLayer = __webpack_require__(15);
+
+var _tubeLayer2 = _interopRequireDefault(_tubeLayer);
+
+var _coinLayer = __webpack_require__(10);
+
+var _coinLayer2 = _interopRequireDefault(_coinLayer);
+
+var _mushroomLayer = __webpack_require__(12);
+
+var _mushroomLayer2 = _interopRequireDefault(_mushroomLayer);
+
+var _player = __webpack_require__(13);
+
+var _player2 = _interopRequireDefault(_player);
+
+var _resources = __webpack_require__(1);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+//import resources from "./resources/flappy/resources";
+
+var game = {
+	ctx: null,
+	cloudLayer: null,
+	tubeLayer: null,
+	coinLayer: null,
+	mushroomLayer: null,
+	player: null,
+	config: {
+		width: 960,
+		height: 560,
+		fps: 60
+	},
+	tickCnt: 0,
+	score: 0,
+	pause: false,
+
+	init: function init() {
+		var _this = this;
+
+		var canvas = document.getElementById('maket');
+		this.ctx = canvas.getContext('2d');
+		this.ctx.width = this.config.width;
+		this.ctx.height = this.config.height;
+		canvas.width = this.config.width;
+		canvas.height = this.config.height;
+		setInterval(this.tick.bind(this), 1000 / this.config.fps);
+		this.ctx.font = "bold 30px sans-serif";
+
+		this.player = new _player2.default({
+			x: 300,
+			y: 300,
+			lives: 3,
+			imgName: 'playerUp'
+		});
+		this.cloudLayer = new _cloudLayer2.default();
+		this.tubeLayer = new _tubeLayer2.default(this.config);
+		this.coinLayer = new _coinLayer2.default();
+		this.mushroomLayer = new _mushroomLayer2.default();
+
+		_GM2.default.on('game:coins:collect', function () {
+			_this.score++;
+			console.log(_this.score);
+		});
+		_GM2.default.on('game:gameover', function () {
+			_this.pause = true;
+		});
+	},
+	tick: function tick() {
+		if (!this.pause) {
+
+			this.draw();
+			this.player.move(this.config, this.tickCnt);
+			this.cloudLayer.move();
+			this.tubeLayer.move();
+			this.mushroomLayer.move(this.config, this.tickCnt);
+			this.coinLayer.move(this.config, this.tickCnt);
+			this.tubeLayer.checkCollision(this.player.x, this.player.y, this.player.width, this.player.height, this.config);
+			this.coinLayer.checkCollision(this.player.x, this.player.y, this.player.width, this.player.height, this.config);
+			this.mushroomLayer.checkCollision(this.player.x, this.player.y, this.player.width, this.player.height, this.config);
+
+			this.tickCnt++;
+		}
+	},
+	draw: function draw() {
+		this.ctx.clearRect(0, 0, this.config.width, this.config.height);
+		this.cloudLayer.draw(this.ctx);
+		this.tubeLayer.draw(this.ctx);
+		this.coinLayer.draw(this.ctx);
+		this.mushroomLayer.draw(this.ctx);
+		this.player.draw(this.ctx);
+		this.ctx.fillText(this.score, this.config.width - 100, 50);
+		this.ctx.drawImage(_resources2.default.coin.image, 2, 2, _resources2.default.coin.width, _resources2.default.coin.height, this.config.width - 60, 10, _resources2.default.coin.width, _resources2.default.coin.height);
+	}
+};
+exports.default = game;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var res = {
+	player: {
+		src: "resources/flappy/player.png",
+		sprite: true,
+		gridWidth: 2,
+		width: 34,
+		height: 24,
+		frequency: 3
+	},
+	cloudBig: {
+		src: "resources/flappy/cloud_big.png",
+		width: 256,
+		height: 96
+	},
+	cloudMiddle: {
+		src: "resources/flappy/cloud_middle.png",
+		width: 192,
+		height: 96
+	},
+	cloudSmall: {
+		src: "resources/flappy/cloud_small.png",
+		width: 128,
+		height: 96
+	},
+	tubeHead: {
+		src: "resources/flappy/tube_vertical_head.png",
+		width: 78,
+		height: 39
+
+	},
+	tube: {
+		src: "resources/flappy/tube_vertical.png",
+		width: 78,
+		height: 3
+	},
+	tubeHeadDown: {
+		src: "resources/flappy/tube_vertical_head_down.png",
+		width: 78,
+		height: 39
+
+	},
+	tubeDown: {
+		src: "resources/flappy/tube_vertical_down.png",
+		width: 78,
+		height: 3
+	},
+	coin: {
+		src: "resources/flappy/coins.png",
+		sprite: true,
+		gridWidth: 2,
+		width: 32,
+		height: 32,
+		frequency: 5
+	},
+	live: {
+		src: "resources/flappy/live.png",
+		width: 26,
+		height: 26
+	}
+
+};
+
+exports.default = res;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _resources = __webpack_require__(1);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+var _GM = __webpack_require__(0);
+
+var _GM2 = _interopRequireDefault(_GM);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+/* exported RM */
+var RM = {
+	init: function init() {
+		var countFor = 0;
+		var countload = 0;
+		for (var key in _resources2.default) {
+			var img = document.createElement('img');
+			var way = _resources2.default[key].src;
+			img.setAttribute('src', way);
+			countFor++;
+			img.addEventListener('load', function () {
+				_resources2.default[this.key].image = this.img;
+				if (_resources2.default[this.key].sprite) {
+					_resources2.default[this.key].countFrame = (_resources2.default[this.key].image.width - _resources2.default[this.key].gridWidth) / (_resources2.default[this.key].width + _resources2.default[this.key].gridWidth);
+				}
+				countload++;
+				if (countFor == countload) {
+					_GM2.default.trigger('resources:loaded');
+				}
+			}.bind({ key: key, img: img }));
+			document.getElementById('preloader').appendChild(img);
+		}
+	}
+
+};
+//import resources from "./resources/flappy/resources";
+exports.default = RM;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _fieldItem = __webpack_require__(2);
+
+var _fieldItem2 = _interopRequireDefault(_fieldItem);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Cloud class
+ * @class Cloud
+ * */
+var Cloud = function (_FieldItem) {
+	_inherits(Cloud, _FieldItem);
+
+	function Cloud(param) {
+		_classCallCheck(this, Cloud);
+
+		return _possibleConstructorReturn(this, (Cloud.__proto__ || Object.getPrototypeOf(Cloud)).call(this, param));
+	}
+
+	return Cloud;
+}(_fieldItem2.default);
+
+exports.default = Cloud;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _layer = __webpack_require__(3);
+
+var _layer2 = _interopRequireDefault(_layer);
+
+var _cloud = __webpack_require__(7);
+
+var _cloud2 = _interopRequireDefault(_cloud);
+
+var _resources = __webpack_require__(5);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import resources from "./resources/mario/resources";
+
+
+/**
+ * CloudLayer class
+ * @class CloudLayer
+ * */
+var CloudLayer = function (_Layer) {
+	_inherits(CloudLayer, _Layer);
+
+	function CloudLayer() {
+		_classCallCheck(this, CloudLayer);
+
+		var _this = _possibleConstructorReturn(this, (CloudLayer.__proto__ || Object.getPrototypeOf(CloudLayer)).call(this));
+
+		_this.config = {
+			cloudsTypes: ['cloudBig', 'cloudMiddle', 'cloudSmall'],
+			maxDis: 400,
+			minDis: 150,
+			maxY: 150,
+			countCloud: 50,
+			speed: 1
+		};
+		var lastCloud = 0;
+		for (var i = 0; i &lt; _this.config.countCloud; i++) {
+			lastCloud += Math.floor(Math.random() * (_this.config.maxDis - _this.config.minDis)) + _this.config.minDis;
+			var type = _this.config.cloudsTypes[Math.round(Math.random() * (_this.config.cloudsTypes.length - 1))];
+			var cloud = new _cloud2.default({
+				x: lastCloud,
+				y: Math.floor(Math.random() * _this.config.maxY),
+				speedX: _this.config.speed,
+				imgName: type
+			});
+			_this.items.push(cloud);
+			lastCloud += _resources2.default[type].width;
+		}
+		return _this;
+	}
+
+	return CloudLayer;
+}(_layer2.default);
+
+exports.default = CloudLayer;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _fieldItem = __webpack_require__(2);
+
+var _fieldItem2 = _interopRequireDefault(_fieldItem);
+
+var _GM = __webpack_require__(0);
+
+var _GM2 = _interopRequireDefault(_GM);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Coin class
+ * @class Coin
+ * */
+
+var Coin = function (_FieldItem) {
+	_inherits(Coin, _FieldItem);
+
+	function Coin(param) {
+		_classCallCheck(this, Coin);
+
+		return _possibleConstructorReturn(this, (Coin.__proto__ || Object.getPrototypeOf(Coin)).call(this, param));
+	}
+	/**
+  * collided player with coin
+  * @constructor
+  */
+
+
+	_createClass(Coin, [{
+		key: 'collided',
+		value: function collided() {
+			_GM2.default.trigger('game:coins:collect');
+			this.hidden = true;
+		}
+	}]);
+
+	return Coin;
+}(_fieldItem2.default);
+
+exports.default = Coin;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _layer = __webpack_require__(3);
+
+var _layer2 = _interopRequireDefault(_layer);
+
+var _coin = __webpack_require__(9);
+
+var _coin2 = _interopRequireDefault(_coin);
+
+var _resources = __webpack_require__(5);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import resources from "./resources/mario/resources";
+
+
+/**
+ * CoinLayer class
+ * @class CoinLayer
+ * */
+var CoinLayer = function (_Layer) {
+	_inherits(CoinLayer, _Layer);
+
+	function CoinLayer() {
+		_classCallCheck(this, CoinLayer);
+
+		var _this = _possibleConstructorReturn(this, (CoinLayer.__proto__ || Object.getPrototypeOf(CoinLayer)).call(this));
+
+		_this.config = {
+			speed: 2,
+			countCoin: 100
+		};
+		var last = 0;
+		for (var i = 0; i &lt; _this.config.countCoin; i++) {
+			last += Math.floor(Math.random() * (600 - 400)) + 400;
+			var coin = new _coin2.default({
+				x: last,
+				y: Math.round(Math.random() * 500),
+				width: _resources2.default.coin.width,
+				height: _resources2.default.coin.height,
+				speedX: _this.config.speed,
+				imgName: "coin",
+				collisable: true
+			});
+			_this.items.push(coin);
+		}
+		return _this;
+	}
+
+	return CoinLayer;
+}(_layer2.default);
+
+exports.default = CoinLayer;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _fieldItem = __webpack_require__(2);
+
+var _fieldItem2 = _interopRequireDefault(_fieldItem);
+
+var _GM = __webpack_require__(0);
+
+var _GM2 = _interopRequireDefault(_GM);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Mushroom class
+ * @class Mushroom
+ * */
+var Mushroom = function (_FieldItem) {
+	_inherits(Mushroom, _FieldItem);
+
+	function Mushroom(param) {
+		_classCallCheck(this, Mushroom);
+
+		return _possibleConstructorReturn(this, (Mushroom.__proto__ || Object.getPrototypeOf(Mushroom)).call(this, param));
+	}
+	/**
+  * collided player with mushroom
+  * @constructor
+  */
+
+
+	_createClass(Mushroom, [{
+		key: 'collided',
+		value: function collided() {
+			_GM2.default.trigger('game:mushroom:collect');
+			this.hidden = true;
+		}
+	}]);
+
+	return Mushroom;
+}(_fieldItem2.default);
+
+exports.default = Mushroom;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _layer = __webpack_require__(3);
+
+var _layer2 = _interopRequireDefault(_layer);
+
+var _mushroom = __webpack_require__(11);
+
+var _mushroom2 = _interopRequireDefault(_mushroom);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * MushroomLayer class
+ * @class MushroomLayer
+ * */
+
+var MushroomLayer = function (_Layer) {
+	_inherits(MushroomLayer, _Layer);
+
+	function MushroomLayer() {
+		_classCallCheck(this, MushroomLayer);
+
+		var _this = _possibleConstructorReturn(this, (MushroomLayer.__proto__ || Object.getPrototypeOf(MushroomLayer)).call(this));
+
+		_this.config = {
+			speed: 2,
+			countCoin: 3
+		};
+		var last = 0;
+		for (var i = 0; i &lt; _this.config.countCoin; i++) {
+			last += Math.floor(Math.random() * (1500 - 400)) + 400;
+			var mushroom = new _mushroom2.default({
+				x: last,
+				y: Math.round(Math.random() * 500),
+				speedX: _this.config.speed,
+				imgName: "live",
+				collisable: true
+			});
+			_this.items.push(mushroom);
+		}
+		return _this;
+	}
+
+	return MushroomLayer;
+}(_layer2.default);
+
+exports.default = MushroomLayer;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _fieldItem = __webpack_require__(2);
+
+var _fieldItem2 = _interopRequireDefault(_fieldItem);
+
+var _GM = __webpack_require__(0);
+
+var _GM2 = _interopRequireDefault(_GM);
+
+var _resources = __webpack_require__(1);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import resources from "./resources/flappy/resources";
+
+
+/** 
+ * Player class
+ * @class Player
+ * */
+var Player = function (_FieldItem) {
+	_inherits(Player, _FieldItem);
+
+	function Player(param) {
+		_classCallCheck(this, Player);
+
+		var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, param));
+
+		_this.w = param.w || 0;
+		_this.g = param.g || 5;
+		_this.lives = param.lives || 1;
+		_this.imgName = param.imgName || "player";
+		_this.unstoppable = 0;
+		_GM2.default.on('game:mushroom:collect', function () {
+			_this.lives++;
+			console.log(_this.lives + "life");
+		});
+		_GM2.default.on('player:die', function () {
+			console.log(_this.lives + "died");
+			if (_this.unstoppable > 0) {
+				return;
+			}
+			_this.lives--;
+			_this.unstoppable = 240;
+			if (_this.lives == 0) {
+				_GM2.default.trigger('game:gameover');
+			}
+		});
+		_GM2.default.on('keyboard:arrawUp', _this.axiYUp.bind(_this));
+
+		return _this;
+	}
+
+	_createClass(Player, [{
+		key: 'move',
+		value: function move(config, tickCnt) {
+			this.y -= this.w - this.g;
+			this.w = this.y &lt; 0 ? this.g : this.w;
+			this.y = this.y &lt; config.height - _resources2.default[this.imgName].height ? this.y : config.height - _resources2.default[this.imgName].height;
+			this.y = this.y > 0 ? this.y : 0;
+
+			this.w = this.w > 0 ? this.w - 1 : this.w;
+
+			if (this.imgName &amp;&amp; _resources2.default[this.imgName].sprite) {
+				if (tickCnt % Math.round(config.fps / _resources2.default[this.imgName].frequency) == 0) {
+					this.frame = (this.frame + 1) % _resources2.default.player.countFrame;
+				}
+			}
+
+			this.unstoppable > 0 ? this.unstoppable-- : this.unstoppable;
+		}
+	}, {
+		key: 'axiYUp',
+		value: function axiYUp() {
+			this.w += 20;
+		}
+	}]);
+
+	return Player;
+}(_fieldItem2.default);
+
+exports.default = Player;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _fieldItem = __webpack_require__(2);
+
+var _fieldItem2 = _interopRequireDefault(_fieldItem);
+
+var _resources = __webpack_require__(1);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+var _GM = __webpack_require__(0);
+
+var _GM2 = _interopRequireDefault(_GM);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import resources from "./resources/flappy/resources";
+
+
+/**
+ * Tube class
+ * @class Tube
+ * */
+var Tube = function (_FieldItem) {
+	_inherits(Tube, _FieldItem);
+
+	function Tube(param) {
+		_classCallCheck(this, Tube);
+
+		var _this = _possibleConstructorReturn(this, (Tube.__proto__ || Object.getPrototypeOf(Tube)).call(this, param));
+
+		_this.type = param.type;
+		//this.heigth=param.heigth;
+		_this.countLayer = param.countLayer;
+		_this.imgHead = _this.type == 0 ? 'tubeHead' : 'tubeHeadDown';
+		_this.imgTube = _this.type == 0 ? 'tube' : 'tubeDown';
+
+		return _this;
+	}
+	/**
+  * draw  tube
+  * @constructor
+  * @param {string} ctx - The place, where we draw.
+  */
+
+
+	_createClass(Tube, [{
+		key: "draw",
+		value: function draw(ctx) {
+			if (this.isVisible(ctx.width)) {
+				var tube = _resources2.default[this.imgTube];
+				var head = _resources2.default[this.imgHead];
+				var dyHead = this.type == 1 ? ctx.height - this.height : this.height - head.height;
+				ctx.drawImage(head.image, 0, 0, head.width, head.height, this.x, dyHead, head.width, head.height);
+				for (var j = 0; j &lt; this.countLayer; j++) {
+					var dy = this.type == 1 ? ctx.height - (j + 1) * tube.height : j * tube.height;
+					ctx.drawImage(tube.image, 0, 0, tube.width, tube.height, this.x, dy, tube.width, tube.height);
+				}
+			}
+		}
+		/**
+   * collition player with tube
+   * @constructor
+   */
+
+	}, {
+		key: "collided",
+		value: function collided() {
+			_GM2.default.trigger('player:die');
+		}
+	}]);
+
+	return Tube;
+}(_fieldItem2.default);
+
+exports.default = Tube;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _layer = __webpack_require__(3);
+
+var _layer2 = _interopRequireDefault(_layer);
+
+var _tube = __webpack_require__(14);
+
+var _tube2 = _interopRequireDefault(_tube);
+
+var _game = __webpack_require__(4);
+
+var _game2 = _interopRequireDefault(_game);
+
+var _resources = __webpack_require__(1);
+
+var _resources2 = _interopRequireDefault(_resources);
+
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" &amp;&amp; superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import resources from "./resources/flappy/resources";
+/**
+ * TubeLayer class
+ * @class TubeLayer
+ * */
+var TubeLayer = function (_Layer) {
+	_inherits(TubeLayer, _Layer);
+
+	function TubeLayer(config) {
+		_classCallCheck(this, TubeLayer);
+
+		var _this = _possibleConstructorReturn(this, (TubeLayer.__proto__ || Object.getPrototypeOf(TubeLayer)).call(this));
+
+		_this.config = {
+			maxDis: 600,
+			minDis: 400,
+			countTube: 75,
+			speed: 2,
+			countLayerMax: Math.round(_game2.default.ctx.height * 0.6 / 8)
+		};
+		var lastTube = 0;
+		for (var i = 0; i &lt; _this.config.countTube; i++) {
+			lastTube += Math.floor(Math.random() * (_this.config.maxDis - _this.config.minDis)) + _this.config.minDis;
+			var countLayer = Math.round(Math.random() * _this.config.countLayerMax);
+			var type = Math.round(Math.random());
+			var heightTube = countLayer * _resources2.default.tube.height + _resources2.default.tubeHead.height;
+			var tube = new _tube2.default({
+				x: lastTube,
+				y: type == 0 ? 0 : config.height - heightTube,
+				type: type,
+				countLayer: countLayer,
+				height: heightTube,
+				width: _resources2.default.tube.width,
+				speedX: _this.config.speed,
+				collisable: true,
+				collisionAccuracyX: 10
+			});
+			_this.items.push(tube);
+		}
+		return _this;
+	}
+
+	return TubeLayer;
+}(_layer2.default);
+
+exports.default = TubeLayer;
+
+/***/ })
+/******/ ]);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cloud.html">Cloud</a></li><li><a href="CloudLayer.html">CloudLayer</a></li><li><a href="Coin.html">Coin</a></li><li><a href="Coin_collided.html">collided</a></li><li><a href="CoinLayer.html">CoinLayer</a></li><li><a href="FieldItem.html">FieldItem</a></li><li><a href="Layer.html">Layer</a></li><li><a href="Layer_checkCollision.html">checkCollision</a></li><li><a href="Layer_draw.html">draw</a></li><li><a href="Layer_move.html">move</a></li><li><a href="Mushroom.html">Mushroom</a></li><li><a href="Mushroom_collided.html">collided</a></li><li><a href="MushroomLayer.html">MushroomLayer</a></li><li><a href="Player.html">Player</a></li><li><a href="Tube.html">Tube</a></li><li><a href="Tube_collided.html">collided</a></li><li><a href="Tube_draw.html">draw</a></li><li><a href="TubeLayer.html">TubeLayer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Apr 06 2017 22:06:47 GMT+0300 (Беларусь (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

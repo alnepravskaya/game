@@ -1,0 +1,28 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "mario plus flappy bird",
+  "main": "index.html",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint.cmd *.js",
+    "start": "./node_modules/.bin/webpack.cmd --progress --colors --watch --config mywebpack.config.js",
+    "build": "./node_modules/.bin/webpack.cmd --config mywebpack.config.js",
+    "jsdoc": "./node_modules/.bin/jsdoc.cmd ../game -c jsdoc.conf.json "
+  },
+  "keywords": [
+    "js",
+    "html",
+    "canvas"
+  ],
+  "dependencies": [
+    "eslint"
+  ],
+  "author": "Alnepravskaya",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "webpack": "^2.3.2"
+  }
+}
